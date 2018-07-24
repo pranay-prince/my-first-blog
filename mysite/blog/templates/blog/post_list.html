@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-	<title>BLOG</title>
-	<meta content="text/html; charset=ISO-8859-1"
-	http-equiv="content-type">
-	<style type="text/css">
-		h2{
-			text-decoration: underline;
-		}
-		body{
-			background-color: #a9b7ce;
-		}
-	</style>
-</head>
-<body>
-	<div>
-		<h2>First Post</h2>
-		<h6>Published date: 04/06/18</h6>
-		<p>This is my first post for this blog.</p>
-	</div>
-	<div>
-		<h2>Second Post</h2>
-		<h6>Published date: 05/06/18</h6>
-		<p>This is my second post XOXO</p>
-	</div>
-	<div>
-		<h2>Third Post</h2>
-		<h6>Published date: 06/06/18</h6>
-		<p>3rd post yay!! YOLO</p>
-	</div>
-</body>
-</html>
+	<head>
+		<title>BLOG</title>
+		<meta content="text/html; charset=ISO-8859-1"
+		http-equiv="content-type">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> 
+		<style type="text/css">
+			h1{
+				font-family: Lobster;
+				text-align: center;
+				font-size: 50px;
+				color: #fff;
+			}
+			h2 a{
+				font-family: Josefin Sans, sans-serif;
+				color: #000;
+				font-size: 33px;
+			}
+			.page-header{
+				background-color: #000;
+				margin-top: 0px;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+			.date{
+				color: #B5645E;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-header">
+			<h1>Pranay Prince</h1>
+		</div>
+		<div class="container">
+			{% for post in posts %}
+			<div>
+				<h2><a href="">{{ post.title }}:</a></h1>
+				<div class="date">
+					<p>Published: {{ post.published_date }}</p>
+				</div>
+				<p>{{post.text|linebreaksbr}}</p>
+			</div>
+			{% endfor %}
+		</div>
+	</body>
+</html> 
