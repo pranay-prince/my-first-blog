@@ -1,50 +1,14 @@
-<!DOCTYPE html>
-<html lang="en-us">
-	<head>
-		<title>BLOG</title>
-		<meta content="text/html; charset=ISO-8859-1"
-		http-equiv="content-type">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> 
-		<style type="text/css">
-			h1{
-				font-family: Lobster;
-				text-align: center;
-				font-size: 50px;
-				color: #fff;
-			}
-			h2 a{
-				font-family: Josefin Sans, sans-serif;
-				color: #000;
-				font-size: 33px;
-			}
-			.page-header{
-				background-color: #000;
-				margin-top: 0px;
-				padding-top: 20px;
-				padding-bottom: 20px;
-			}
-			.date{
-				color: #B5645E;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="page-header">
-			<h1>Pranay Prince</h1>
-		</div>
-		<div class="container">
-			{% for post in posts %}
-			<div>
-				<h2><a href="">{{ post.title }}:</a></h1>
-				<div class="date">
-					<p>Published: {{ post.published_date }}</p>
-				</div>
-				<p>{{post.text|linebreaksbr}}</p>
-			</div>
-			{% endfor %}
-		</div>
-	</body>
-</html> 
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+        	<h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

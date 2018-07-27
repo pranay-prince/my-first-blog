@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<title>My Blog</title>
+		<meta content="text/html; charset=ISO-8859-1"
+		http-equiv="content-type">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> 
+		<style type="text/css">
+			/*h1{
+				text-align: center;
+			}*/
+			h1 a{
+				font-family: Lobster;
+				font-size: 50px;
+				color: #fff;
+			}
+			h1 a:hover{
+				color: #fff;
+				text-decoration: none;
+			}
+			h2 a{
+				font-family: Josefin Sans, sans-serif;
+				color: #000;
+				font-size: 33px;
+			}
+			.page-header{
+				background-color: #000;
+				margin-top: 0px;
+				/*padding-top: 20px;*/
+				padding-bottom: 5px;
+			}
+			.date{
+				color: #B5645E;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-header">
+			<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+			<h1 style="text-align: center;"><a href='/' data-toggle="tooltip" data-placement="left" title="Home Page">Pranay Prince</a></h1>
+		</div>
+		<div class="container">
+			<div>
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
+	</body>
+</html> 
